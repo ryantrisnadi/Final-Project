@@ -71,7 +71,7 @@ def upload_to_elasticsearch():
     untuk dibuat visualisasinya di kibana
     '''
     es = Elasticsearch("http://elasticsearch:9200")
-    df = pd.read_csv('/opt/airflow/dags/P2M3_vincent_kaunang_data_clean1.csv')
+    df = pd.read_csv('/opt/airflow/dags/sales_data_clean.csv')
     
     for i, r in df.iterrows():
         doc = r.to_dict()  # Convert the row to a dictionary
@@ -88,8 +88,8 @@ default_args = {
 }
 
 with DAG(
-    "P2M3_vincent_kaunang_DAG_hck", #atur sesuai nama project kalian
-    description='Milestone_3',
+    "Finpro", #atur sesuai nama project kalian
+    description='Final_project',
     schedule_interval='30 6 * * *', #atur schedule untuk menjalankan airflow pada 06:30.
     default_args=default_args, 
     catchup=False

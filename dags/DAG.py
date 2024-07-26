@@ -60,6 +60,7 @@ def preprocessing():
     data.drop_duplicates(inplace=True)
     data['Order Date'] = pd.to_datetime(data['Order Date'])
     del data['Unnamed: 0']
+    del data['Order ID']
     data.columns = data.columns.str.lower()
     data.columns = data.columns.str.replace(' ', '_')
 
